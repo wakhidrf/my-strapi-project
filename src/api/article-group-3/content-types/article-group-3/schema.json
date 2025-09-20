@@ -20,15 +20,8 @@
     "slug": {
       "type": "uid"
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "cover_url": {
+      "type": "string"
     },
     "author": {
       "type": "relation",
