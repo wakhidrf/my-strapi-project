@@ -17,7 +17,15 @@
     "description": {
       "type": "text"
     },
-    "slug": {
+    "slug_1": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "slug_2": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "slug_3": {
       "type": "uid",
       "targetField": "title"
     },
@@ -25,16 +33,7 @@
       "type": "string"
     },
     "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "article_group_2s"
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "article_group_2s"
+      "type": "string"
     }
   }
 }

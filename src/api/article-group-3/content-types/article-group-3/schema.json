@@ -17,23 +17,23 @@
     "description": {
       "type": "text"
     },
-    "slug": {
-      "type": "uid"
+    "slug_1": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "slug_2": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "slug_3": {
+      "type": "uid",
+      "targetField": "title"
     },
     "cover_url": {
       "type": "string"
     },
     "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "article_group_3s"
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "article_group_3s"
+      "type": "string"
     }
   }
 }

@@ -385,8 +385,7 @@ export interface ApiArticleGroup1ArticleGroup1
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    author: Schema.Attribute.String;
     cover_url: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -399,7 +398,9 @@ export interface ApiArticleGroup1ArticleGroup1
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
+    slug_1: Schema.Attribute.UID<'title'>;
+    slug_2: Schema.Attribute.UID<'title'>;
+    slug_3: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -419,8 +420,7 @@ export interface ApiArticleGroup2ArticleGroup2
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    author: Schema.Attribute.String;
     cover_url: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -433,7 +433,9 @@ export interface ApiArticleGroup2ArticleGroup2
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
+    slug_1: Schema.Attribute.UID<'title'>;
+    slug_2: Schema.Attribute.UID<'title'>;
+    slug_3: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -453,8 +455,7 @@ export interface ApiArticleGroup3ArticleGroup3
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    author: Schema.Attribute.String;
     cover_url: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -467,92 +468,10 @@ export interface ApiArticleGroup3ArticleGroup3
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID;
+    slug_1: Schema.Attribute.UID<'title'>;
+    slug_2: Schema.Attribute.UID<'title'>;
+    slug_3: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    displayName: 'Author';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    article_group_1s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-1.article-group-1'
-    >;
-    article_group_2s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-2.article-group-2'
-    >;
-    article_group_3s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-3.article-group-3'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::author.author'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    displayName: 'Category';
-    pluralName: 'categories';
-    singularName: 'category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    article_group_1s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-1.article-group-1'
-    >;
-    article_group_2s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-2.article-group-2'
-    >;
-    article_group_3s: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article-group-3.article-group-3'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    picture: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1158,8 +1077,6 @@ declare module '@strapi/strapi' {
       'api::article-group-1.article-group-1': ApiArticleGroup1ArticleGroup1;
       'api::article-group-2.article-group-2': ApiArticleGroup2ArticleGroup2;
       'api::article-group-3.article-group-3': ApiArticleGroup3ArticleGroup3;
-      'api::author.author': ApiAuthorAuthor;
-      'api::category.category': ApiCategoryCategory;
       'api::url-group-1.url-group-1': ApiUrlGroup1UrlGroup1;
       'api::url-group-2.url-group-2': ApiUrlGroup2UrlGroup2;
       'api::url-group-3.url-group-3': ApiUrlGroup3UrlGroup3;
