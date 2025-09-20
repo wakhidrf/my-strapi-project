@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "url_group_3s",
+  "info": {
+    "singularName": "url-group-3",
+    "pluralName": "url-group-3s",
+    "displayName": "Url Group 3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
